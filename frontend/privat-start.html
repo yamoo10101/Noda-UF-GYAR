@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privat – Noda UF</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/index.css" />
+</head>
+<body>
+
+<header class="toppmeny">
+  <div class="behallare toppmeny__inre">
+    <a class="varumarke" href="index.html">Noda UF</a>
+
+    <nav class="toppmeny__lankar" id="toppmenyLankar" aria-label="Inloggad meny">
+      <a class="toppmeny__lank" href="#" data-flik="swipe">Swipe</a>
+      <a class="toppmeny__lank" href="#" data-flik="matchningar">Matchningar</a>
+      <a class="toppmeny__lank" href="#" data-flik="profil">Profil</a>
+      <a class="toppmeny__lank" href="logout.php">Logga ut</a>
+    </nav>
+
+    <button class="menyknapp" id="menyknapp" aria-label="Öppna meny" aria-expanded="false" aria-controls="toppmenyLankar">
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main class="behallare sida">
+
+  <!-- FLIK: SWIPE -->
+  <section class="flik flik--aktiv" id="flik-swipe" aria-label="Swipe">
+    <h1>Swipe</h1>
+    <p class="text-brod">Gilla eller hoppa över annonser.</p>
+
+    <div class="kort stor-kort" id="annonsKort">
+      <div class="kort__bild" id="annonsBild" aria-label="Annonsbild"></div>
+
+      <div class="kort__innehall">
+        <div class="kort__rubrikrad">
+          <h2 class="kort__titel" id="annonsTitel">Butiksmedarbetare (Deltid)</h2>
+          <span class="kort__foretag" id="annonsForetag">ICA Nära</span>
+        </div>
+
+        <div class="kort__rad">
+          <span><strong>Stad:</strong> <span id="annonsStad">Alingsås</span></span>
+          <span><strong>Anställningsform:</strong> <span id="annonsForm">Deltid</span></span>
+        </div>
+
+        <div class="kort__rad">
+          <span><strong>Sökt tjänst:</strong> <span id="annonsTjanst">Butiksbiträde</span></span>
+          <span><strong>Adress:</strong> <span id="annonsAdress">Centrumgatan 1</span></span>
+        </div>
+
+        <p class="kort__text" id="annonsText">
+          Vi söker en driven person som gillar tempo och service. Erfarenhet är meriterande men inget krav.
+        </p>
+
+        <div class="taggar" id="annonsTaggar">
+          <span class="tagg">Service</span>
+          <span class="tagg">Tempo</span>
+          <span class="tagg">Kassa</span>
+          <span class="tagg">Helgjobb</span>
+        </div>
+
+        <div class="kort__knappar">
+          <button class="knapp--sekundar" id="knappNej" type="button" aria-label="Hoppa över">👎 Hoppa</button>
+          <button class="knapp--primar" id="knappJa" type="button" aria-label="Gilla">👍 Gilla</button>
+        </div>
+
+        <p class="hint" id="swipeHint">
+          (Prototyp) När Alva kopplar backend: 👎/👍 sparas i <code>swipes</code>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLIK: MATCHNINGAR -->
+  <section class="flik" id="flik-matchningar" aria-label="Matchningar">
+    <h1>Matchningar</h1>
+    <p class="text-brod">Här visas företag du matchat med. Klicka för att se chatten.</p>
+
+    <div class="lista">
+      <a class="lista__item" href="chatt.html">
+        <div class="lista__bild"></div>
+        <div class="lista__info">
+          <div class="lista__titel">Bageri Solros</div>
+          <div class="lista__sub">Matchad • 2026-01-20</div>
+        </div>
+      </a>
+
+      <a class="lista__item" href="chatt.html">
+        <div class="lista__bild"></div>
+        <div class="lista__info">
+          <div class="lista__titel">Café Hörnet</div>
+          <div class="lista__sub">Matchad • 2026-01-18</div>
+        </div>
+      </a>
+
+      <a class="lista__item" href="chatt.html">
+        <div class="lista__bild"></div>
+        <div class="lista__info">
+          <div class="lista__titel">Gym Arena</div>
+          <div class="lista__sub">Matchad • 2026-01-15</div>
+        </div>
+      </a>
+    </div>
+
+    <p class="hint">
+      (Prototyp) Sen kopplas detta mot <code>matches</code> och <code>messages</code>.
+    </p>
+  </section>
+
+  <!-- FLIK: PROFIL -->
+  <section class="flik" id="flik-profil" aria-label="Profil">
+    <h1>Min profil</h1>
+    <p class="text-brod">Här kan du redigera bio, stad och taggar (i prototypen).</p>
+
+    <div class="profilkort">
+      <div class="profilkort__topp">
+        <div class="profilkort__bild"></div>
+        <div>
+          <div class="profilkort__namn">Testperson</div>
+          <div class="profilkort__rad">Stad: <span class="muted">Alingsås</span></div>
+        </div>
+      </div>
+
+      <form class="formular formular--kompakt" action="#" method="post">
+        <div class="formular__rad">
+          <label for="stad">Stad</label>
+          <input id="stad" name="stad" type="text" value="Alingsås" />
+        </div>
+
+        <div class="formular__rad">
+          <label for="bio">Biografi (max ~700 tecken)</label>
+          <textarea id="bio" name="biografi" rows="6">Jag är social, gillar tempo och söker jobb inom service.</textarea>
+        </div>
+
+        <div class="formular__rad">
+          <label>Taggar (max 8)</label>
+          <div class="taggar">
+            <span class="tagg">Service</span>
+            <span class="tagg">Kundkontakt</span>
+            <span class="tagg">Helg</span>
+          </div>
+          <div class="muted" style="margin-top:6px;">
+            (Prototyp) Sen kopplas detta mot era tagg-tabeller.
+          </div>
+        </div>
+
+        <button class="knapp--primar" type="button">Spara ändringar</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="sidfot">
+  <div class="behallare sidfot__inre">
+    <span>© Noda UF</span>
+    <a href="mailto:nodauf@gmail.com?subject=Kontakt%20Noda%20UF">nodauf@gmail.com</a>
+  </div>
+</footer>
+
+<script src="../assets/js/index.js"></script>
+<script src="../assets/js/privat-start.js"></script>
+</body>
+</html>
