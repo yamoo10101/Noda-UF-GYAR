@@ -647,3 +647,154 @@ p{
 @media (max-width: 720px){
   .kort__knappar{ flex-direction: column; }
 }
+
+p{
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 14px;
+}
+
+.profilkort__bild{
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  background: rgba(107,123,74,0.18);
+}
+
+.profilkort__namn{
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.formular--kompakt{
+  max-width: none;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+}
+
+/* ===== Chatt ===== */
+.chatt{
+  margin-top: 18px;
+}
+
+.chatt__header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.chatt__grid{
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.chatt__panel{
+  background: var(--kort);
+  border: 1px solid var(--kant);
+  border-radius: var(--radie);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+  padding: 18px;
+}
+
+.chatt__kort{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: var(--accent-ljus);
+  margin-bottom: 10px;
+}
+
+.chatt__avatar{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: rgba(107,123,74,0.22);
+  flex: 0 0 auto;
+}
+
+.chatt__avatar--person{
+  background: rgba(185,176,143,0.38);
+}
+
+.chatt__namn{
+  font-weight: 900;
+}
+
+.chatt__rad{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.chatt__flode{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 6px;
+  margin-bottom: 16px;
+}
+
+.chatt__meddelande{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.chatt__meddelande--egen{
+  align-items: flex-end;
+}
+
+.chatt__bubbla{
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(185,176,143,0.22);
+  max-width: min(420px, 100%);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+.chatt__meddelande--egen .chatt__bubbla{
+  background: var(--accent-ljus);
+}
+
+.chatt__meta{
+  font-size: 13px;
+  color: var(--text-dampad);
+}
+
+.chatt__skriv{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.chatt__input{
+  flex: 1;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 12px;
+  padding: 12px 12px;
+  font: inherit;
+  background: #fff;
+}
+
+.chatt__input:focus{
+  outline: 2px solid rgba(107,123,74,0.28);
+  border-color: rgba(107,123,74,0.45);
+}
+
+@media (max-width: 720px){
+  .kort__knappar{ flex-direction: column; }
+  .chatt__grid{ grid-template-columns: 1fr; }
+  .chatt__skriv{ flex-direction: column; align-items: stretch; }
+}

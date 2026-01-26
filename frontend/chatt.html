@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatt – Noda UF</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/index.css" />
+</head>
+<body>
+
+<header class="toppmeny">
+  <div class="behallare toppmeny__inre">
+    <a class="varumarke" href="index.html">Noda UF</a>
+
+    <nav class="toppmeny__lankar" id="toppmenyLankar" aria-label="Chattmeny">
+      <a class="toppmeny__lank" href="privat-start.html">Privat</a>
+      <a class="toppmeny__lank" href="foretag-start.html">Företag</a>
+      <a class="toppmeny__lank" href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <button class="menyknapp" id="menyknapp" aria-label="Öppna meny" aria-expanded="false" aria-controls="toppmenyLankar">
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main class="behallare sida">
+  <section class="chatt" aria-label="Chatt mellan matchade parter">
+    <div class="chatt__header">
+      <div>
+        <h1>Chatt</h1>
+        <p class="text-brod">Gemensam chatt för företag och privatpersoner efter matchning.</p>
+      </div>
+      <a class="knapp--sekundar" href="privat-start.html">Till matchningar</a>
+    </div>
+
+    <div class="chatt__grid">
+      <aside class="chatt__panel" aria-label="Matchinfo">
+        <div class="chatt__kort">
+          <div class="chatt__avatar"></div>
+          <div>
+            <div class="chatt__namn">Bageri Solros</div>
+            <div class="chatt__meta">Företag • Alingsås</div>
+          </div>
+        </div>
+
+        <div class="chatt__kort">
+          <div class="chatt__avatar chatt__avatar--person"></div>
+          <div>
+            <div class="chatt__namn">Alva Larsson</div>
+            <div class="chatt__meta">Privatperson • Tillgänglig helger</div>
+          </div>
+        </div>
+
+        <div class="chatt__rad">
+          <span class="chatt__meta">Matchad</span>
+          <span class="chatt__meta">2026-01-20</span>
+        </div>
+
+        <p class="hint">(Prototyp) Här visas matchdata och kontaktinfo från <code>matches</code>.</p>
+      </aside>
+
+      <section class="chatt__panel" aria-label="Meddelanden">
+        <div class="chatt__flode">
+          <div class="chatt__meddelande">
+            <div class="chatt__bubbla">Hej! Vi såg din profil och tror du skulle passa bra hos oss.</div>
+            <span class="chatt__meta">Bageri Solros • 09:14</span>
+          </div>
+
+          <div class="chatt__meddelande chatt__meddelande--egen">
+            <div class="chatt__bubbla">Hej! Vad kul. Vilka tider behöver ni hjälp?</div>
+            <span class="chatt__meta">Du • 09:18</span>
+          </div>
+
+          <div class="chatt__meddelande">
+            <div class="chatt__bubbla">Främst helger. Kan du komma förbi på en kort intervju i veckan?</div>
+            <span class="chatt__meta">Bageri Solros • 09:25</span>
+          </div>
+
+          <div class="chatt__meddelande chatt__meddelande--egen">
+            <div class="chatt__bubbla">Absolut! Onsdag eftermiddag funkar för mig.</div>
+            <span class="chatt__meta">Du • 09:27</span>
+          </div>
+        </div>
+
+        <form class="chatt__skriv" action="#" method="post">
+          <input class="chatt__input" type="text" name="meddelande" placeholder="Skriv ett meddelande..." aria-label="Skriv ett meddelande" />
+          <button class="knapp--primar" type="button">Skicka</button>
+        </form>
+
+        <p class="hint">(Prototyp) Sen kopplas detta mot <code>messages</code> och realtidsuppdatering.</p>
+      </section>
+    </div>
+  </section>
+</main>
+
+<footer class="sidfot">
+  <div class="behallare sidfot__inre">
+    <span>© Noda UF</span>
+    <a href="mailto:nodauf@gmail.com?subject=Kontakt%20Noda%20UF">nodauf@gmail.com</a>
+  </div>
+</footer>
+
+<script src="../assets/js/index.js"></script>
+</body>
+</html>
