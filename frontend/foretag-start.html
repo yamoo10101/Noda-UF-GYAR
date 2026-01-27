@@ -1,0 +1,246 @@
+<!-- frontend/foretag-start.html -->
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Företag – Noda UF</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/index.css" />
+</head>
+<body>
+
+<header class="toppmeny">
+  <div class="behallare toppmeny__inre">
+    <a class="varumarke" href="index.html">Noda UF</a>
+
+    <nav class="toppmeny__lankar" id="toppmenyLankar" aria-label="Inloggad meny">
+      <a class="toppmeny__lank" href="#" data-flik="annonser">Mina annonser</a>
+      <a class="toppmeny__lank" href="#" data-flik="skapa">Skapa annons</a>
+      <a class="toppmeny__lank" href="#" data-flik="swipe">Swipe profiler</a>
+      <a class="toppmeny__lank" href="#" data-flik="matchningar">Matchningar</a>
+      <a class="toppmeny__lank" href="#" data-flik="profil">Profil</a>
+      <a class="toppmeny__lank" href="logout.php">Logga ut</a>
+    </nav>
+
+    <button class="menyknapp" id="menyknapp" aria-label="Öppna meny" aria-expanded="false" aria-controls="toppmenyLankar">
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main class="behallare sida">
+
+  <!-- FLIK: MINA ANNONSER -->
+  <section class="flik flik--aktiv" id="flik-annonser" aria-label="Mina annonser">
+    <h1>Mina annonser</h1>
+    <p class="text-brod">Här ser du dina annonser. Klicka för att redigera.</p>
+
+    <div class="lista">
+      <a class="lista__item" href="annons.html">
+        <div class="lista__bild"></div>
+        <div class="lista__info">
+          <div class="lista__titel">Butiksmedarbetare (Deltid)</div>
+          <div class="lista__sub">Alingsås • Publicerad</div>
+        </div>
+      </a>
+
+      <a class="lista__item" href="annons.html">
+        <div class="lista__bild"></div>
+        <div class="lista__info">
+          <div class="lista__titel">Cafépersonal (Extra)</div>
+          <div class="lista__sub">Vårgårda • Publicerad</div>
+        </div>
+      </a>
+
+      <a class="lista__item" href="annons.html">
+        <div class="lista__bild"></div>
+        <div class="lista__info">
+          <div class="lista__titel">Lagerhjälp (Sommarjobb)</div>
+          <div class="lista__sub">Borlänge • Utkast</div>
+        </div>
+      </a>
+    </div>
+
+    <p class="hint">(Prototyp) Sen kopplas detta mot <code>annons</code> + <code>annonsbilder</code>.</p>
+  </section>
+
+  <!-- FLIK: SKAPA ANNONS -->
+  <section class="flik" id="flik-skapa" aria-label="Skapa annons">
+    <h1>Skapa annons</h1>
+    <p class="text-brod">Fyll i informationen. Sen kan du lägga till bilder och taggar.</p>
+
+    <form class="formular" action="#" method="post">
+      <div class="formular__rad">
+        <label for="foretagsnamn">Företagsnamn</label>
+        <input id="foretagsnamn" name="foretagsnamn" type="text" value="Testföretag AB" required>
+      </div>
+
+      <div class="formular__rad formular__rad--halvor">
+        <div>
+          <label for="adress">Adress</label>
+          <input id="adress" name="adress" type="text" placeholder="t.ex. Storgatan 12" required>
+        </div>
+        <div>
+          <label for="stad">Stad</label>
+          <input id="stad" name="stad" type="text" placeholder="t.ex. Alingsås" required>
+        </div>
+      </div>
+
+      <div class="formular__rad formular__rad--halvor">
+        <div>
+          <label for="sokt_tjanst">Sökt tjänst</label>
+          <input id="sokt_tjanst" name="sokt_tjanst" type="text" placeholder="t.ex. Butiksmedarbetare" required>
+        </div>
+        <div>
+          <label for="anstallningsform">Anställningsform</label>
+          <input id="anstallningsform" name="anstallningsform" type="text" placeholder="t.ex. Deltid / Extra" required>
+        </div>
+      </div>
+
+      <div class="formular__rad">
+        <label for="titel">Annonsrubrik</label>
+        <input id="titel" name="titel" type="text" placeholder="t.ex. Butiksmedarbetare sökes" required>
+      </div>
+
+      <div class="formular__rad">
+        <label for="beskrivning">Beskrivning</label>
+        <textarea id="beskrivning" name="beskrivning" rows="7" placeholder="Beskriv jobbet och vad ni söker..." required></textarea>
+      </div>
+
+      <div class="formular__rad">
+        <label>Taggar (max 8)</label>
+        <div class="taggar">
+          <span class="tagg">Service</span>
+          <span class="tagg">Kundkontakt</span>
+          <span class="tagg">Tempo</span>
+        </div>
+        <div class="muted" style="margin-top:6px;">(Prototyp) Sen kopplas detta mot <code>annons_tags</code> + <code>tags</code>.</div>
+      </div>
+
+      <div class="formular__rad">
+        <label>Bilder (3–5)</label>
+        <div class="muted">Här blir det uppladdning senare (PHP). För prototyp: placeholder.</div>
+      </div>
+
+      <button class="knapp--primar" type="button">Publicera</button>
+      <p class="hint">(Prototyp) Sen sparas detta i <code>annons</code>.</p>
+    </form>
+  </section>
+
+  <!-- FLIK: SWIPE PROFILER -->
+  <section class="flik" id="flik-swipe" aria-label="Swipe profiler">
+    <h1>Swipe profiler</h1>
+    <p class="text-brod">Gilla eller hoppa över jobbsökare.</p>
+
+    <div class="kort stor-kort" id="profilKort">
+      <div class="kort__bild" id="profilBild" aria-label="Profilbild"></div>
+
+      <div class="kort__innehall">
+        <div class="kort__rubrikrad">
+          <h2 class="kort__titel" id="profilNamn">Alex Andersson</h2>
+          <span class="kort__foretag" id="profilStad">Alingsås</span>
+        </div>
+
+        <p class="kort__text" id="profilBio">
+          Jag är social, gillar tempo och söker jobb inom service. Jag kan jobba kvällar och helger.
+        </p>
+
+        <div class="taggar" id="profilTaggar">
+          <span class="tagg">Service</span>
+          <span class="tagg">Team</span>
+          <span class="tagg">Helg</span>
+          <span class="tagg">Kundkontakt</span>
+        </div>
+
+        <div class="kort__knappar">
+          <button class="knapp--sekundar" id="knappNej" type="button">👎 Hoppa</button>
+          <button class="knapp--primar" id="knappJa" type="button">👍 Gilla</button>
+        </div>
+
+        <p class="hint">(Prototyp) Sen sparas swipe i <code>swipes</code>. Match skapas i <code>matches</code>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLIK: MATCHNINGAR -->
+  <section class="flik" id="flik-matchningar" aria-label="Matchningar">
+    <h1>Matchningar</h1>
+    <p class="text-brod">Klicka på en match för att öppna chatten.</p>
+
+    <div class="lista">
+      <a class="lista__item" href="chatt.html">
+        <div class="lista__bild"></div>
+        <div class="lista__info">
+          <div class="lista__titel">Alex Andersson</div>
+          <div class="lista__sub">Matchad • 2026-01-20</div>
+        </div>
+      </a>
+
+      <a class="lista__item" href="chatt.html">
+        <div class="lista__bild"></div>
+        <div class="lista__info">
+          <div class="lista__titel">Sara Nilsson</div>
+          <div class="lista__sub">Matchad • 2026-01-18</div>
+        </div>
+      </a>
+    </div>
+
+    <p class="hint">(Prototyp) Sen kopplas detta mot <code>matches</code> + <code>messages</code>.</p>
+  </section>
+
+  <!-- FLIK: PROFIL (FÖRETAG) -->
+  <section class="flik" id="flik-profil" aria-label="Företagsprofil">
+    <h1>Företagsprofil</h1>
+    <p class="text-brod">Uppdatera företagets presentation och kontaktuppgifter.</p>
+
+    <div class="profilkort">
+      <div class="profilkort__topp">
+        <div class="profilkort__bild"></div>
+        <div>
+          <div class="profilkort__namn">Testföretag AB</div>
+          <div class="profilkort__rad">Plats: <span class="muted">Alingsås</span></div>
+        </div>
+      </div>
+
+      <form class="formular formular--kompakt" action="#" method="post">
+        <div class="formular__rad">
+          <label for="foretagsbio">Beskrivning</label>
+          <textarea id="foretagsbio" name="foretagsbio" rows="6">Vi är ett företag som söker driven personal inom service och kundkontakt.</textarea>
+        </div>
+
+        <div class="formular__rad formular__rad--halvor">
+          <div>
+            <label for="telefon">Telefon</label>
+            <input id="telefon" name="telefon" type="text" placeholder="t.ex. 070-123 45 67">
+          </div>
+          <div>
+            <label for="epost">E-post</label>
+            <input id="epost" name="epost" type="email" placeholder="t.ex. info@foretag.se">
+          </div>
+        </div>
+
+        <button class="knapp--primar" type="button">Spara ändringar</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="sidfot">
+  <div class="behallare sidfot__inre">
+    <span>© Noda UF</span>
+    <a href="mailto:nodauf@gmail.com?subject=Kontakt%20Noda%20UF">nodauf@gmail.com</a>
+  </div>
+</footer>
+
+<script src="../assets/js/index.js"></script>
+<script src="../assets/js/foretag-start.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ – Noda UF</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/index.css" />
+</head>
+<body>
+
+<header class="toppmeny">
+  <div class="behallare toppmeny__inre">
+    <a class="varumarke" href="index.html">Noda UF</a>
+
+    <nav class="toppmeny__lankar" id="toppmenyLankar">
+      <a class="toppmeny__lank" href="index.html">Hem</a>
+      <a class="toppmeny__lank" href="om-oss.html">Om oss</a>
+      <a class="toppmeny__lank" href="faq.html">FAQ</a>
+      <a class="toppmeny__lank" href="kontakt.html">Kontakt</a>
+      <a class="toppmeny__lank" href="login.html">Logga in</a>
+    </nav>
+
+    <button class="menyknapp" id="menyknapp" aria-label="Öppna meny" aria-expanded="false" aria-controls="toppmenyLankar">
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main class="behallare sida">
+  <h1>FAQ</h1>
+  <p class="text-brod">Här är vanliga frågor och svar om Noda UF.</p>
+
+  <div class="faq-lista">
+    <details class="faq">
+      <summary>Skapar användare egna konton?</summary>
+      <div class="faq__svar">
+        <p>
+          I prototypen skapas konton manuellt. Efter inloggning kan användaren redigera sin profil
+          (t.ex. biografi, taggar och profilbild).
+        </p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Hur fungerar matchning?</summary>
+      <div class="faq__svar">
+        <p>
+          När två parter gillar varandra skapas en matchning. Matchningen visas i chattfliken.
+        </p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Vad kan en annons innehålla?</summary>
+      <div class="faq__svar">
+        <p>
+          Företagsnamn, adress, sökt tjänst och anställningsform samt beskrivning och taggar.
+        </p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Hur många taggar får man ha?</summary>
+      <div class="faq__svar">
+        <p>
+          Max 8 taggar per profil eller annons.
+        </p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Hur kontaktar jag er?</summary>
+      <div class="faq__svar">
+        <p>
+          Gå till sidan <strong>Kontakt</strong> och skicka ett meddelande via formuläret.
+        </p>
+      </div>
+    </details>
+  </div>
+</main>
+
+<footer class="sidfot">
+  <div class="behallare sidfot__inre">
+    <span>© Noda UF</span>
+    <a href="mailto:nodauf@gmail.com?subject=Kontakt%20Noda%20UF">nodauf@gmail.com</a>
+  </div>
+</footer>
+
+<script src="../assets/js/index.js"></script>
+</body>
+</html>

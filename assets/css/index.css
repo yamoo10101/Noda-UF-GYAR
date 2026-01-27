@@ -1,0 +1,649 @@
+:root{
+  --bakgrund: #f4f0e3;
+  --toppmeny: #2f3a2b;
+  --kort: #ffffff;
+
+  --text: #1f1f1f;
+  --text-dampad: #5a5a5a;
+
+  --accent: #6b7b4a;            /* oliv */
+  --accent-ljus: rgba(107,123,74,0.12);
+  --beige-ljus: rgba(185,176,143,0.22);
+
+  --kant: rgba(0,0,0,0.08);
+  --radie: 16px;
+
+  --skugga: 0 10px 28px rgba(0,0,0,0.08);
+  --skugga-hover: 0 16px 38px rgba(0,0,0,0.12);
+}
+
+/* ===== Grundinställningar ===== */
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  font-family: "Roboto Slab", serif;
+  background: var(--bakgrund);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Små typografijusteringar för Roboto Slab */
+h1, h2, h3{
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+p{
+  font-weight: 400;
+}
+
+.behallare{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+/* ===== Toppmeny ===== */
+.toppmeny{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--toppmeny);
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.toppmeny__inre{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 0;
+}
+
+/* Logotyp / varumärke */
+.varumarke{
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.toppmeny__lankar{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toppmeny__lank{
+  color: rgba(255,255,255,0.92);
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.toppmeny__lank:hover{
+  background: rgba(255,255,255,0.08);
+}
+
+.menyknapp{
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.22);
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.menyknapp:hover{
+  background: rgba(255,255,255,0.08);
+}
+
+/* ===== Hero ===== */
+.hero{
+  padding: 70px 0 18px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--beige-ljus), rgba(185,176,143,0.00));
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.hero h1{
+  margin: 0 0 12px;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.hero p{
+  margin: 0 auto;
+  max-width: 640px;
+  color: var(--text-dampad);
+  font-size: 1.05rem;
+}
+
+/* ===== Val-kort ===== */
+.val{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 26px;
+  padding: 26px 0 38px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.valkort{
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--kort);
+  border: 1px solid var(--kant);
+  border-radius: var(--radie);
+  padding: 24px;
+  min-height: 120px;
+  box-shadow: var(--skugga);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.valkort:hover{
+  transform: translateY(-3px);
+  box-shadow: var(--skugga-hover);
+}
+
+.valkort__ikon{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--accent-ljus);
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.valkort__ikon svg{
+  width: 26px;
+  height: 26px;
+}
+
+.valkort h2{
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.valkort p{
+  margin: 0;
+  color: var(--text-dampad);
+}
+
+/* ===== Så fungerar det ===== */
+.sa-funkar-det{
+  padding: 18px 0 60px;
+}
+
+.sa-funkar-det h2{
+  margin: 8px 0 14px;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.2px;
+}
+
+.steg-rutnat{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 14px;
+}
+
+.steg{
+  background: var(--kort);
+  border: 1px solid var(--kant);
+  border-radius: var(--radie);
+  padding: 16px;
+  min-height: 140px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.steg__ikon{
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: rgba(185,176,143,0.25);
+  color: #2f3a2b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.steg__ikon svg{
+  width: 24px;
+  height: 24px;
+}
+
+.steg__rubrikrad{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.steg__nummer{
+  width: 30px;
+  height: 30px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.steg h3{
+  margin: 0;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.steg p{
+  margin: 0;
+  color: var(--text-dampad);
+}
+
+/* ===== Sidor (om-oss / faq / kontakt) ===== */
+.sida{
+  padding: 34px 0 60px;
+}
+
+.sida h1{
+  margin: 0 0 14px;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -0.6px;
+}
+
+.text-brod{
+  margin: 0;
+  max-width: 820px;
+  color: var(--text-dampad);
+}
+
+.sida__kort{
+  background: var(--kort);
+  border: 1px solid var(--kant);
+  border-radius: var(--radie);
+  padding: 22px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+}
+
+/* ===== FAQ (dropdown) ===== */
+.faq-lista{
+  max-width: 820px;
+  margin-top: 18px;
+}
+
+.faq{
+  background: var(--kort);
+  border: 1px solid var(--kant);
+  border-radius: var(--radie);
+  padding: 14px 16px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+  margin: 12px 0;
+}
+
+.faq summary{
+  cursor: pointer;
+  font-weight: 900;
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker{
+  display: none;
+}
+
+.faq summary::after{
+  content: "▾";
+  float: right;
+  opacity: 0.7;
+}
+
+.faq[open] summary::after{
+  content: "▴";
+}
+
+.faq__svar{
+  margin-top: 10px;
+  color: var(--text-dampad);
+}
+
+/* ===== Kontaktformulär ===== */
+.formular{
+  margin-top: 18px;
+  background: var(--kort);
+  border: 1px solid var(--kant);
+  border-radius: var(--radie);
+  padding: 22px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+  max-width: 820px;
+}
+
+.formular__rad{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.formular__rad--halvor{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.formular label{
+  font-weight: 900;
+}
+
+.formular input,
+.formular textarea{
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 12px;
+  padding: 12px 12px;
+  font: inherit;
+  background: #fff;
+}
+
+.formular input:focus,
+.formular textarea:focus{
+  outline: 2px solid rgba(107,123,74,0.28);
+  border-color: rgba(107,123,74,0.45);
+}
+
+.knapp--primar{
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.knapp--primar:hover{
+  filter: brightness(1.03);
+}
+
+.formular__info{
+  margin: 12px 0 0;
+  color: var(--text-dampad);
+}
+
+.formular__info a{
+  color: var(--text);
+}
+
+/* ===== Sidfot ===== */
+.sidfot{
+  padding: 22px 0;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.sidfot__inre{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--text-dampad);
+}
+
+.sidfot a{
+  color: var(--text-dampad);
+  text-decoration: none;
+}
+
+.sidfot a:hover{
+  text-decoration: underline;
+}
+
+/* ===== Responsiv ===== */
+@media (max-width: 980px){
+  .steg-rutnat{
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+}
+
+@media (max-width: 720px){
+  .varumarke{
+    font-size: 1.3rem;
+  }
+
+  .menyknapp{
+    display: inline-flex;
+  }
+
+  .toppmeny__lankar{
+    display: none;
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    top: 62px;
+    background: var(--toppmeny);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .toppmeny__lankar.ar-oppnad{
+    display: flex;
+  }
+
+  .hero{
+    text-align: left;
+    padding-top: 42px;
+  }
+
+  .val{
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
+
+  .steg-rutnat{
+    grid-template-columns: 1fr;
+  }
+
+  .sidfot__inre{
+    flex-direction: column;
+  }
+
+  .formular__rad--halvor{
+    grid-template-columns: 1fr;
+  }
+}
+/* ===== Inloggad vy: flikar + kort ===== */
+.flik{ display: none; }
+.flik--aktiv{ display: block; }
+
+.kort{
+  background: var(--kort);
+  border: 1px solid var(--kant);
+  border-radius: var(--radie);
+  box-shadow: var(--skugga);
+  overflow: hidden;
+}
+
+.stor-kort{
+  max-width: 900px;
+  margin: 18px auto 0;
+}
+
+.kort__bild{
+  height: 220px;
+  background: linear-gradient(120deg, rgba(107,123,74,0.25), rgba(185,176,143,0.25));
+}
+
+.kort__innehall{ padding: 18px; }
+
+.kort__rubrikrad{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.kort__titel{
+  margin: 0;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.kort__foretag{
+  color: var(--text-dampad);
+  font-weight: 700;
+}
+
+.kort__rad{
+  margin-top: 10px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: var(--text-dampad);
+}
+
+.kort__text{
+  margin: 14px 0 0;
+  color: var(--text);
+}
+
+.taggar{
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tagg{
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.7);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.kort__knappar{
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+}
+
+.knapp--sekundar{
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.18);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.knapp--sekundar:hover{
+  background: rgba(0,0,0,0.03);
+}
+
+.hint{
+  margin: 12px 0 0;
+  color: var(--text-dampad);
+  font-size: 14px;
+}
+
+.muted{ color: var(--text-dampad); }
+
+/* ===== Matchlista ===== */
+.lista{
+  max-width: 820px;
+  margin-top: 18px;
+}
+
+.lista__item{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: var(--radie);
+  text-decoration: none;
+  color: inherit;
+  background: var(--kort);
+  border: 1px solid var(--kant);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+  margin: 12px 0;
+}
+
+.lista__item:hover{ transform: translateY(-1px); }
+
+.lista__bild{
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgba(185,176,143,0.25);
+  flex: 0 0 auto;
+}
+
+.lista__titel{ font-weight: 900; }
+.lista__sub{ color: var(--text-dampad); font-size: 14px; }
+
+/* ===== Profilkort ===== */
+.profilkort{
+  max-width: 820px;
+  margin-top: 18px;
+  background: var(--kort);
+  border: 1px solid var(--kant);
+  border-radius: var(--radie);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+  padding: 18px;
+}
+
+.profilkort__topp{
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 14px;
+}
+
+.profilkort__bild{
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  background: rgba(107,123,74,0.18);
+}
+
+.profilkort__namn{
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.formular--kompakt{
+  max-width: none;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+}
+
+@media (max-width: 720px){
+  .kort__knappar{ flex-direction: column; }
+}
