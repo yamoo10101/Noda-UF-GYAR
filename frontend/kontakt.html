@@ -35,8 +35,8 @@
   <h1>Kontakt</h1>
   <p class="text-brod">Fyll i formuläret så återkommer vi via e-post.</p>
 
-  <!-- Prototyp: mailto.-->
-  <form class="formular" action="mailto:nodauf@gmail.com" method="post" enctype="text/plain">
+  <form class="formular" action="https://formspree.io/f/xnjbadbq" method="POST">
+  <input type="hidden" name="_redirect" value="tack.html">
     <div class="formular__rad">
       <label for="namn">Namn</label>
       <input id="namn" name="namn" type="text" placeholder="Ditt namn" required />
@@ -50,7 +50,7 @@
 
       <div>
         <label for="epost">E-post</label>
-        <input id="epost" name="epost" type="email" placeholder="din@epost.se" required />
+        <input id="epost" name="email" type="email" placeholder="din@epost.se" required />
       </div>
     </div>
 

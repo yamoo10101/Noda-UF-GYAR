@@ -1,40 +1,40 @@
 <?php
 session_start();
-require "db.php;"  // databas anslutning
+require "../config/db.php";
 
-//säkerställ att användaren är inloggad
-if (!isset($_SESSION['user_id'])){
-    die("Du måste vara inloggad")
+// säkerställ att användaren är inloggad
+if (!isset($_SESSION['user_id'])) {
+    die("Du måste vara inloggad");
 }
 
 $user_id = $_SESSION['user_id'];
 
-if ($_SERVER["REQUEST_METHOD"] === "POST"){
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // hämta data från formuläret
-    $stad = trim($_POST['stad']);
-    $biografi = trim($_POST['biografi']);
+    $stad = trim($_POST['stad'] ?? '');
+    $biografi = trim($_POST['biografi'] ?? '');
+    $kontotyp = $_POST['kontotyp'] ?? '';
 
-    //felmeddelande
     $errors = [];
 
-
-    //validera stad
-    if (empty($stad) ){
-        $errors[] = "Stad måste fyllas i";
+    if ($stad === '') {
+        $errors[] = "Stad måste fyllas i.";
     }
 
-    // Validera biografi
-    if(empty($biografi)){
+    if ($biografi === '') {
         $errors[] = "Biografi måste fyllas i.";
-    } elseif (strlen($biografi) > 700){
-        $errors[]= "Biografi får inte överstiga 700 tecken"
+    } elseif (strlen($biografi) > 700) {
+        $errors[] = "Biografi får inte överstiga 700 tecken.";
     }
 
-    // validera kontotyp
-    if($kontotyp !== 'arbetstagare' && $kontotyp !== 'företag'){
-        $errors[]= "Kontotyp är ogiltlig"
+    if ($kontotyp !== 'arbetstagare' && $kontotyp !== 'företag') {
+        $errors[] = "Kontotyp är ogiltig.";
     }
 
-    //validera 
+    if (!empty($errors)) {
+        print_r($errors);
+        exit;
     }
+
+    // här kommer INSERT/UPDATE i databasen
+}
