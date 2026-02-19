@@ -2329,3 +2329,22 @@ p{
     align-items:stretch;
   }
 }
+.tagg {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #e5e5e5;
+  color: #333;
+  font-size: 0.85rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+.tagg--vald {
+  background-color: #6b7b4a;
+  color: white;
+
+  transform: scale(1.05);
+  transition: 0.15s;
+} 

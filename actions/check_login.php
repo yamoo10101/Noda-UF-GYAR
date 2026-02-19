@@ -1,62 +1,59 @@
 <?php
 session_start();
-require_once "../config/db.php";
+require __DIR__ . "/../../config/db.php";
 
-// Kontrollera att formuläret skickats korrekt
-if (empty($_POST['username']) || empty($_POST['password'])) {
-    header("Location: ../frontend/login.html?error=1");
-    exit;
+// Basic validering
+if (empty($_POST["username"]) || empty($_POST["password"])) {
+  header("Location: ../login.php?error=1");
+  exit;
 }
 
-$username = trim($_POST['username']);
-$password = $_POST['password'];
+$username = trim($_POST["username"]);
+$password = (string)$_POST["password"];
 
-// Hämta användare inkl. kontotyp
-$stmt = $conn->prepare(
-    "SELECT id, losenord, kontotyp 
-     FROM users 
-     WHERE anvandarnamn = ?"
-);
+// Hämta användare
+$stmt = $conn->prepare("
+  SELECT id, losenord, kontotyp, anvandarnamn
+  FROM users
+  WHERE anvandarnamn = ?
+  LIMIT 1
+");
 $stmt->bind_param("s", $username);
 $stmt->execute();
-$result = $stmt->get_result();
+$res = $stmt->get_result();
 
-// Finns användaren?
-if ($result->num_rows === 1) {
-    $user = $result->fetch_assoc();
+if ($res && $res->num_rows === 1) {
+  $user = $res->fetch_assoc();
 
-    // Verifiera lösenord
-    if (password_verify($password, $user['losenord'])) {
+  if (password_verify($password, $user["losenord"])) {
+    // Session
+    $_SESSION["logged_in"] = true;
+    $_SESSION["user_id"]   = (int)$user["id"];
+    $_SESSION["username"]  = $user["anvandarnamn"] ?? $username;
+    $_SESSION["kontotyp"]  = $user["kontotyp"];
 
-        // Sätt sessioner
-        $_SESSION['logged_in'] = true;
-        $_SESSION['user_id']   = $user['id'];
-        $_SESSION['username']  = $username;
-        $_SESSION['kontotyp']  = $user['kontotyp'];
-
-        // Kom ihåg mig (valfritt)
-        if (!empty($_POST['keepLoggedIn'])) {
-            setcookie(
-                "logged_in",
-                "true",
-                time() + (86400 * 30),
-                "/",
-                "",
-                false,
-                true
-            );
-        }
-
-        // Redirect baserat på kontotyp
-        if ($user['kontotyp'] === 'arbetsgivare') {
-            header("Location: ../frontend/foretag-start.html");
-        } else {
-            header("Location: ../frontend/privat-start.html");
-        }
-        exit;
+    // “Keep me logged in” (OBS: detta är bara kosmetiskt om ni inte bygger riktig remember-token)
+    if (!empty($_POST["keepLoggedIn"])) {
+      setcookie("logged_in", "true", [
+        "expires" => time() + (86400 * 30),
+        "path" => "/",
+        "secure" => false, // sätt true på https i produktion
+        "httponly" => true,
+        "samesite" => "Lax"
+      ]);
     }
+
+    // Redirect efter kontotyp
+    if ($user["kontotyp"] === "arbetsgivare") {
+      header("Location: ../foretag-start.php");
+      exit;
+    }
+
+    header("Location: ../privat-start.php");
+    exit;
+  }
 }
 
-// Fel inloggning
-header("Location: ../frontend/login.html?error=1");
+// Fail
+header("Location: ../login.php?error=1");
 exit;
