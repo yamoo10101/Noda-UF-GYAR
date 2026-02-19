@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "db.php";
+require __DIR__ . '/../config/db.php';
 
 // Felmeddelanden
 $error = isset($_GET['error']) ? $_GET['error'] : '';
