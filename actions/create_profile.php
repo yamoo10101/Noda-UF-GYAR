@@ -1,18 +1,18 @@
 <?php
 session_start();
-require "../config/db.php";
-require "db.php";  // databasanslutning
 
-// säkerställ att användaren är inloggad
+require_once "../config/db.php"; // VÄLJ EN DB-FIL, inte två
+// require_once "db.php";
+
 if (!isset($_SESSION['user_id'])) {
     die("Du måste vara inloggad");
 }
 
-$user_id = $_SESSION['user_id'];
+$user_id = (int)$_SESSION['user_id'];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $stad = trim($_POST['stad'] ?? '');
+    $stad     = trim($_POST['stad'] ?? '');
     $biografi = trim($_POST['biografi'] ?? '');
     $kontotyp = $_POST['kontotyp'] ?? '';
 
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($biografi === '') {
         $errors[] = "Biografi måste fyllas i.";
-    } elseif (strlen($biografi) > 700) {
+    } elseif (mb_strlen($biografi, 'UTF-8') > 700) {
         $errors[] = "Biografi får inte överstiga 700 tecken.";
     }
 
@@ -35,5 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!empty($errors)) {
         print_r($errors);
         exit;
+    }
 
     // här kommer INSERT/UPDATE i databasen
+}
