@@ -1,6 +1,7 @@
 <?php
 session_start();
 require "../config/db.php";
+require "db.php";  // databasanslutning
 
 // säkerställ att användaren är inloggad
 if (!isset($_SESSION['user_id'])) {
@@ -34,7 +35,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!empty($errors)) {
         print_r($errors);
         exit;
-    }
 
     // här kommer INSERT/UPDATE i databasen
-}
